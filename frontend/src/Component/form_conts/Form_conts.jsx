@@ -20,20 +20,20 @@ export default function Form_conts() {
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
-		const userInfo = JSON.parse(localStorage.getItem('userInfo'));
+		// const userInfo = JSON.parse(localStorage.getItem('userInfo'));
 
-		// if user info exist then make a get request with auth token
-		if (!userInfo) {
-			window.SharedArrayBuffer.location = 'https://www.google.com';
-		}
-		const config = {
-			headers: {
-				'Content-type': 'application/json',
-				Authorization: `Bearer ${userInfo.access}`
-			}
-		};
+		// // if user info exist then make a get request with auth token
+		// if (!userInfo) {
+		// 	window.SharedArrayBuffer.location = 'https://www.google.com';
+		// }
+		// const config = {
+		// 	headers: {
+		// 		'Content-type': 'application/json',
+		// 		Authorization: `Bearer ${userInfo.access}`
+		// 	}
+		// };
 		axios
-			.post(`http://127.0.0.1:8000/api/sell/create`, userInput, config)
+			.post(`http://campus--cart.herokuapp.com/api/sell/create`, userInput)
 			.then((res) => (window.location.href = '/success'))
 			.catch((err) => {
 				alert(

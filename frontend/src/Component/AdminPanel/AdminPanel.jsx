@@ -32,13 +32,13 @@ function AdminPanel() {
 				Authorization: `Bearer ${userInfo.access}`
 			}
 		};
-		axios.get('http://127.0.0.1:8000/api/buy', config).then((res) => {
+		axios.get('http://campus--cart.herokuapp.com/api/buy', config).then((res) => {
 			setBuy(res.data);
 			setData(
 				res.data.filter((buyer) => buyer.order_type === options[0])
 			);
 		});
-		axios.get('http://127.0.0.1:8000/api/sell', config).then((res) => {
+		axios.get('http://campus--cart.herokuapp.com/api/sell', config).then((res) => {
 			setSell(res.data);
 		});
 		setData(buy);
@@ -81,7 +81,7 @@ function AdminPanel() {
 			}
 		};
 		axios
-			.patch(`http://127.0.0.1:8000/api/buy/${id}`, userData, config)
+			.patch(`http://campus--cart.herokuapp.com/api/buy/${id}`, userData, config)
 			.then((res) => {
 				setBuy(res.data);
 				setData(
@@ -107,7 +107,7 @@ function AdminPanel() {
 			}
 		};
 		axios
-			.patch(`http://127.0.0.1:8000/api/sell/${id}`, userData, config)
+			.patch(`http://campus--cart.herokuapp.com/api/sell/${id}`, userData, config)
 			.then((res) => {
 				setSell(res.data);
 				setData(res.data);

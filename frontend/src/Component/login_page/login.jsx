@@ -13,7 +13,7 @@ export default function Login() {
 		};
 		console.log(userData);
 		axios
-			.post('http://127.0.0.1:8000/api/login', userData)
+			.post('http://campus--cart.herokuapp.com/api/login', userData)
 			.then((res) => {
 				localStorage.setItem('userInfo', JSON.stringify(res.data));
 				window.location.href = "/admin"
